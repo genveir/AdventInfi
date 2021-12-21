@@ -25,21 +25,26 @@ namespace AdventInfi
                 .Verschillende()
                 .AlsRij();
 
-            foreach (var pn in alleSoortenSpullen) alleOnderdelen.Voeg(pn, new Onderdeel(pn)).Toe();
+            alleSoortenSpullen.DoeVoorElk(soortDing => alleOnderdelen.Voeg(soortDing, new Onderdeel(soortDing)).Toe());
 
             var fabrikaten = new Lijst<Onderdeel>();
-            for (int n = 1; n < regels.Lengte; n++)
-            {
-                rij<sliert> inStukjes = regels[n].Splits(new rij<karakt>(' ', ',', ':'), SliertOpsplitsOpties.VerwijderLegeInzendingen);
 
-                var halfFabrikaat = alleOnderdelen[inStukjes[0]];
-
-                for (getal i = 1; i < inStukjes.Lengte; i += 2)
+            regels
+                .SlaEr(1).Over()
+                .En().DoeVoorElk(regel =>
                 {
-                    halfFabrikaat.Onderdelen.Voeg((inStukjes[i].AlsGetal(), alleOnderdelen[inStukjes[i + 1]])).Toe();
-                }
-                fabrikaten.Voeg(halfFabrikaat).Toe();
-            }
+                    rij<sliert> inStukjes = regel
+                        .Splits(new rij<karakt>(' ', ',', ':'), SliertOpsplitsOpties.VerwijderLegeInzendingen);
+
+                    var halfFabrikaat = alleOnderdelen[inStukjes[0]];
+
+                    for (getal i = 1; i < inStukjes.Lengte; i += 2)
+                    {
+                        halfFabrikaat.Onderdelen
+                            .Voeg((inStukjes[i].AlsGetal(), alleOnderdelen[inStukjes[i + 1]])).Toe();
+                    }
+                    fabrikaten.Voeg(halfFabrikaat).Toe();
+                });
 
             return (alGevuldeRuimte, fabrikaten);
         }

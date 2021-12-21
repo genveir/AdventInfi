@@ -1,4 +1,5 @@
-﻿using AdventInfi.Types;
+﻿using AdventInfi.Systeem.Schaqel;
+using AdventInfi.Types;
 
 namespace AdventInfi
 {
@@ -21,7 +22,7 @@ namespace AdventInfi
                 if (Onderdelen.Telling == 0) _totaalAantal = 1;
                 else
                 {
-                    foreach (var onderdeel in Onderdelen) _totaalAantal += onderdeel.aantal * onderdeel.type.TotaalAantalDelen();
+                    Onderdelen.DoeVoorElk((onderdeel) =>  _totaalAantal += onderdeel.aantal * onderdeel.type.TotaalAantalDelen());
                 }
             }
             return _totaalAantal;

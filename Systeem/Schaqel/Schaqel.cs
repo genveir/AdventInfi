@@ -7,6 +7,8 @@ namespace AdventInfi.Systeem.Schaqel
 {
     public static class IEnumerableExtensies
     {
+        public static void DoeVoorElk<T>(this IEnumerable<T> bron, Action<T> aktie) { foreach (T t in bron) aktie(t); }
+
         public static IEnumerable<T> MaakVastAan<T>(this IEnumerable<T> bron, T nieuweDing) => bron.Append(nieuweDing);
 
         public static IEnumerable<T> Behalve<T>(this IEnumerable<T> bron, IEnumerable<T> andere) => bron.Except(andere);
