@@ -33,7 +33,7 @@ namespace AdventInfi
                 else if (toestand.ruimteOver < 0 || toestand.pakjesDieNogMoetenPassen < 0) resultaat = (ONWAAR, rij<karakt>.Leeg());
                 else
                 {
-                    for (int n = 0; n < speelgoed.Lengte; n++)
+                    for (getal n = 0; n < speelgoed.Lengte; n++)
                     {
                         MogelijkeTasInvulling nieuweState = toestand.Next(speelgoed[n].eersteLetter, speelgoed[n].size);
 
