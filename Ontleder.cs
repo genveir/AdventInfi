@@ -3,9 +3,9 @@ using AdventInfi.Types;
 
 namespace AdventInfi
 {
-    static class Begrijper
+    static class Ontleder
     {
-        public static (getal alGevuldeRuimte, Lijst<Onderdeel> fabrikaten) ProbeerDeSpeelgoedLijstTeBegrijpen(sliert speelgoedLijst)
+        public static (getal alGevuldeRuimte, Lijst<Onderdeel> fabrikaten) ProbeerDeSpeelgoedLijstTeOntleden(sliert speelgoedLijst)
         {
             rij<sliert> regels = speelgoedLijst
                 .Splits(new rij<karakt>('\n', '\r'), SliertOpsplitsOpties.VerwijderLegeInzendingen)
@@ -21,7 +21,7 @@ namespace AdventInfi
                 .SlaEr(1).Over()
                 .En().PakEenHoop(l => l
                     .Splits(new rij<karakt>(' ', ',', ':'), SliertOpsplitsOpties.VerwijderLegeInzendingen)
-                    .Waar(s => !getal.ProbeerTeParseren(s, out _)))
+                    .Waar(s => !getal.ProbeerTeOntleden(s, out _)))
                 .Verschillende()
                 .AlsRij();
 

@@ -17,7 +17,7 @@ namespace AdventInfi
         {
             hetAantalPakjes = aantalPakjes;
 
-            (alGevuldeRuimte, fabrikaten) = Begrijper.ProbeerDeSpeelgoedLijstTeBegrijpen(speelgoedLijst);
+            (alGevuldeRuimte, fabrikaten) = Ontleder.ProbeerDeSpeelgoedLijstTeOntleden(speelgoedLijst);
         }
 
         Woordenboek<(getal, getal), (waarheid, rij<karakt>)> bezocht;

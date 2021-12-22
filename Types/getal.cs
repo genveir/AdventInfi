@@ -19,7 +19,7 @@ namespace AdventInfi.Types
         public static bool operator <(getal getal, getal erbij) => getal._getal < erbij._getal;
         public static bool operator >(getal getal, getal erbij) => getal._getal > erbij._getal;
 
-        public static bool ProbeerTeParseren(sliert bron, out getal uitkomst)
+        public static bool ProbeerTeOntleden(sliert bron, out getal uitkomst)
         {
             bool success = int.TryParse(bron.ToString(), out int waarde);
             uitkomst = new getal(waarde);
