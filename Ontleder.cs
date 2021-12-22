@@ -1,5 +1,6 @@
-﻿using AdventInfi.Systeem.Schaqel;
-using AdventInfi.Types;
+﻿using Systeem;
+using Systeem.Schaqel;
+using Systeem.Verzamelingen.Algemeen;
 
 namespace AdventInfi
 {

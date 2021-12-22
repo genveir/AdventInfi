@@ -1,7 +1,7 @@
-﻿using AdventInfi.Systeem;
-using AdventInfi.Systeem.Schaqel;
-using AdventInfi.Types;
-using static AdventInfi.Types.waarheid;
+﻿using Systeem;
+using Systeem.Schaqel;
+using Systeem.Verzamelingen.Algemeen;
+using static Systeem.waarheid;
 
 namespace AdventInfi
 {
@@ -24,8 +24,9 @@ namespace AdventInfi
         rij<(karakt eersteLetter, getal size)> speelgoed;
         (waarheid succes, rij<karakt> result) VindIngepakteCadeaus(MogelijkeTasInvulling toestand)
         {
-            (waarheid succes, rij<karakt> pakketjes) resultaat;
-            if (bezocht.Probeer((toestand.ruimteOver, toestand.pakjesDieNogMoetenPassen)).OpTeHalen(out resultaat)) return resultaat;
+            if (bezocht
+                .Probeer((toestand.ruimteOver, toestand.pakjesDieNogMoetenPassen))
+                .OpTeHalen(out (waarheid succes, rij<karakt> pakketjes) resultaat)) return resultaat;
             else
             {
                 resultaat = (ONWAAR, rij<karakt>.Leeg());
@@ -82,7 +83,7 @@ namespace AdventInfi
             bezocht = new Woordenboek<(getal, getal), (waarheid, rij<karakt>)>();
             rij<karakt> pakketjes = VindIngepakteCadeaus(beginToestand).result;
 
-            sliert antwoord = new sliert(pakketjes);
+            sliert antwoord = new(pakketjes);
 
             Venster.SchrijfRegel(antwoord);
 

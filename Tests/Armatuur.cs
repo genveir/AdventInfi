@@ -1,4 +1,4 @@
-﻿using AdventInfi.Tests.Neenheid;
+﻿using Tests.Neenheid;
 using NUnit.Framework;
 
 namespace AdventInfi.Tests

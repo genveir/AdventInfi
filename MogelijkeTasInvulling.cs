@@ -1,5 +1,5 @@
-﻿using AdventInfi.Systeem.Schaqel;
-using AdventInfi.Types;
+﻿using Systeem;
+using Systeem.Schaqel;
 
 namespace AdventInfi
 {

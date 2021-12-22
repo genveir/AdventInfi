@@ -1,6 +1,6 @@
 namespace AdventInfi
 {
-	public class Program
+	public class Programma
 	{
 		public static void Main(string[] args)
 		{
