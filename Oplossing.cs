@@ -21,7 +21,7 @@ namespace AdventInfi
         }
 
         Woordenboek<(getal, getal), (waarheid, rij<karakt>)> bezocht;
-        rij<(karakt eersteLetter, getal size)> speelgoed;
+        rij<(karakt eersteLetter, getal grootte)> speelgoed;
         (waarheid succes, rij<karakt> result) VindIngepakteCadeaus(MogelijkeTasInvulling toestand)
         {
             if (bezocht
@@ -36,7 +36,7 @@ namespace AdventInfi
                 {
                     for (getal n = 0; n < speelgoed.Lengte; n++)
                     {
-                        MogelijkeTasInvulling nieuweState = toestand.Volgende(speelgoed[n].eersteLetter, speelgoed[n].size);
+                        MogelijkeTasInvulling nieuweState = toestand.Volgende(speelgoed[n].eersteLetter, speelgoed[n].grootte);
 
                         (waarheid succes, rij<karakt> pakketjes) subResultaat = VindIngepakteCadeaus(nieuweState);
 
