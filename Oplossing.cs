@@ -22,7 +22,7 @@ namespace AdventInfi
 
         Woordenboek<(getal, getal), (waarheid, rij<karakt>)> bezocht;
         rij<(karakt eersteLetter, getal size)> speelgoed;
-        (waarheid success, rij<karakt> result) VindIngepakteCadeaus(MogelijkeTasInvulling toestand)
+        (waarheid succes, rij<karakt> result) VindIngepakteCadeaus(MogelijkeTasInvulling toestand)
         {
             (waarheid succes, rij<karakt> pakketjes) resultaat;
             if (bezocht.Probeer((toestand.ruimteOver, toestand.pakjesDieNogMoetenPassen)).OpTeHalen(out resultaat)) return resultaat;
@@ -35,7 +35,7 @@ namespace AdventInfi
                 {
                     for (getal n = 0; n < speelgoed.Lengte; n++)
                     {
-                        MogelijkeTasInvulling nieuweState = toestand.Next(speelgoed[n].eersteLetter, speelgoed[n].size);
+                        MogelijkeTasInvulling nieuweState = toestand.Volgende(speelgoed[n].eersteLetter, speelgoed[n].size);
 
                         (waarheid succes, rij<karakt> pakketjes) subResultaat = VindIngepakteCadeaus(nieuweState);
 

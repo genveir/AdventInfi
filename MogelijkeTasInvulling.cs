@@ -16,7 +16,7 @@ namespace AdventInfi
             this.pakjesDieNogMoetenPassen = pakjesDieNogMoetenPassen;
         }
 
-        public MogelijkeTasInvulling Next(karakt pakje, getal volume)
+        public MogelijkeTasInvulling Volgende(karakt pakje, getal volume)
         {
             return new MogelijkeTasInvulling(
                 pakjes: pakjes
